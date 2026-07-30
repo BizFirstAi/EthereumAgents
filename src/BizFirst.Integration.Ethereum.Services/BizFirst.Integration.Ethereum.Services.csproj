@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>BizFirst.Integration.Ethereum.Services</RootNamespace>
+    <AssemblyName>BizFirst.Integration.Ethereum.Services</AssemblyName>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Nethereum.Web3" Version="6.0.0" />
+    <PackageReference Include="Nethereum.Signer.EIP712" Version="6.0.0" />
+    <PackageReference Include="Nethereum.HdWallet" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.17" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.17" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.17" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.17" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.17" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BizFirst.Integration.Ethereum.Domain\BizFirst.Integration.Ethereum.Domain.csproj" />
+    <!-- ICredentialResolver lives here — used to resolve vault-backed RPC URLs at connection time -->
+    <ProjectReference Include="..\..\..\..\ProcessEngine\BizFirst.Ai.ProcessEngine.Domain\BizFirst.Ai.ProcessEngine.Domain.csproj" />
+  </ItemGroup>
+</Project>
