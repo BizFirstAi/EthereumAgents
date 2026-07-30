@@ -14,7 +14,7 @@ chain) without touching an SDK or managing a node connection. Unlike many read-o
 blockchain nodes, this one already ships real **signed writes** — token transfers, contract calls,
 NFT transfers, contract deployment, and off-chain message signing — alongside a large read surface,
 across 10 resources and 64 defined operations (63 currently reachable; see
-[Known gaps](docs/README.md#known-gaps)).
+[Roadmap](#roadmap)).
 
 | Resource | Operations | Description |
 |---|---|---|
@@ -35,29 +35,13 @@ a vault `CRYPTO_WALLET` credential — the signing key is never a plain config f
 
 ## Documentation
 
-| Page | Published URL |
-|---|---|
-| Operation reference | https://bizfirstai.github.io/EthereumAgents/ |
-| Guide: Overview | https://bizfirstai.github.io/EthereumAgents/guide/ |
-| Guide: Configuration | https://bizfirstai.github.io/EthereumAgents/guide/01-configuration.html |
-| Guide: Networks | https://bizfirstai.github.io/EthereumAgents/guide/02-networks.html |
-| Guide: Account Operations | https://bizfirstai.github.io/EthereumAgents/guide/03-account-operations.html |
-| Guide: Block Operations | https://bizfirstai.github.io/EthereumAgents/guide/04-block-operations.html |
-| Guide: Transaction Operations | https://bizfirstai.github.io/EthereumAgents/guide/05-transaction-operations.html |
-| Guide: Token Operations (ERC-20) | https://bizfirstai.github.io/EthereumAgents/guide/06-token-operations.html |
-| Guide: NFT Operations (ERC-721) | https://bizfirstai.github.io/EthereumAgents/guide/07-nft-operations.html |
-| Guide: Contract Operations | https://bizfirstai.github.io/EthereumAgents/guide/08-contract-operations.html |
-| Guide: ENS Operations | https://bizfirstai.github.io/EthereumAgents/guide/09-ens-operations.html |
-| Guide: Gas Operations | https://bizfirstai.github.io/EthereumAgents/guide/10-gas-operations.html |
-| Guide: Wallet Operations | https://bizfirstai.github.io/EthereumAgents/guide/11-wallet-operations.html |
-| Guide: Utility Operations | https://bizfirstai.github.io/EthereumAgents/guide/12-utility-operations.html |
-| Guide: Input & Output | https://bizfirstai.github.io/EthereumAgents/guide/13-input-output.html |
-| Guide: Examples | https://bizfirstai.github.io/EthereumAgents/guide/14-examples.html |
-| Guide: Troubleshooting | https://bizfirstai.github.io/EthereumAgents/guide/15-troubleshooting.html |
-| Guide: Roadmap | https://bizfirstai.github.io/EthereumAgents/guide/16-roadmap.html |
+- **This site:** [ethereum.bizfirstai.com](https://ethereum.bizfirstai.com) — quick reference and links
+- **Full guide (16 pages):** [docs.bizfirstai.com/Nodes/Ethereum](https://docs.bizfirstai.com/Nodes/Ethereum/) —
+  configuration, networks, every resource's operations, examples, troubleshooting
+- **Full developer portal:** [docs.bizfirstai.com](https://docs.bizfirstai.com)
 
-Same guide, also published in the portal: [bizfirstai.github.io/UserGuides/Nodes/Ethereum](https://bizfirstai.github.io/UserGuides/Nodes/Ethereum/)
-Full developer portal: [docs.bizfirstai.com](https://docs.bizfirstai.com)
+All BizFirst.Ai node documentation is maintained in one place — the
+[UserGuides](https://github.com/BizFirstAi/UserGuides) portal — rather than duplicated per repo.
 
 ## Project layout
 
@@ -66,6 +50,9 @@ src/
 ├── BizFirst.Integration.Ethereum.Domain     # Result records + network options (zero deps)
 ├── BizFirst.Integration.Ethereum.Services   # Nethereum-backed JSON-RPC client + resource services
 └── BizFirst.Ai.ExecutionNodes.Blockchain.Ethereum  # Executor: routing, config, operation DTOs
+docs/
+├── index.html  # This site's homepage — quick reference, links out to the full guide
+└── CNAME       # ethereum.bizfirstai.com
 ```
 
 Targets **.NET 9**. Built on [Nethereum](https://nethereum.com/) 6.0.0.
@@ -88,7 +75,7 @@ each network's RPC endpoint and chain ID; per-node-instance configuration (workf
 selects `resource`/`operation`/`network` and operation-specific fields per step. Provider API keys
 should be kept out of plain `RpcUrl` — use `RpcUrlCredentialId` (a vault `SERVICE_URL` credential)
 for any endpoint that embeds a secret. See the
-[Configuration guide](https://bizfirstai.github.io/EthereumAgents/guide/01-configuration.html) for
+[Configuration guide](https://docs.bizfirstai.com/Nodes/Ethereum/01-configuration.html) for
 the full field reference.
 
 ## Registration
@@ -108,7 +95,7 @@ to their node-plugin bootstrap so the assembly is force-loaded and discoverable 
 - **Trigger nodes** (block/transaction/contract-event/interval listeners) are an open architectural
   question, out of scope for this action-node pass.
 
-See the [Roadmap guide](https://bizfirstai.github.io/EthereumAgents/guide/16-roadmap.html) for full detail.
+See the [Roadmap guide](https://docs.bizfirstai.com/Nodes/Ethereum/16-roadmap.html) for full detail.
 
 ## About BizFirst.Ai
 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EthereumAgents — BizFirst.Ai Community Node</title>
+<link rel="stylesheet" href="https://docs.bizfirstai.com/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+.bfai-topbar-logo img{height:26px;display:block;}.bfai-topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:#1e2736;border-bottom:1px solid #2d3a4a;height:40px;display:flex;align-items:center;padding:0 20px;}
+.bfai-topbar-right{margin-left:auto;display:flex;gap:6px;}
+.bfai-topbar-right a{font-size:12px;color:#b0c4d8;text-decoration:none;padding:4px 12px;border-radius:5px;display:flex;align-items:center;gap:6px;transition:background 0.15s,color 0.15s;}
+.bfai-topbar-right a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+body{padding-top:40px;}
+main{margin-left:0;max-width:960px;padding:40px 32px;}
+.hero{text-align:center;padding:32px 0 8px;}
+.hero img{height:48px;margin-bottom:16px;}
+.hero h1{font-size:2.2rem;margin:0 0 8px;}
+.hero p.subtitle{font-size:1.1rem;max-width:640px;margin:0 auto;}
+</style>
+</head>
+<body>
+
+<div class="bfai-topbar">
+  <a href="https://bizfirstai.com" target="_blank" class="bfai-topbar-logo">
+    <img src="https://www.bizfirstai.com/website/assets/Logo/logo.png" alt="BizFirstAI">
+  </a>
+  <div class="bfai-topbar-right">
+    <a href="https://docs.bizfirstai.com/" target="_top"><i class="fa-solid fa-house"></i> Portal</a>
+    <a href="https://community.bizfirstai.com" target="_blank"><i class="fa-solid fa-people-group"></i> Community</a>
+    <a href="https://github.com/BizFirstAi/EthereumAgents" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+  </div>
+</div>
+
+<main>
+  <div class="hero">
+    <img src="https://www.bizfirstai.com/website/assets/Logo/logo.png" alt="BizFirstAI">
+    <h1>EthereumAgents</h1>
+    <p class="subtitle">Ethereum community node for BizFirst.Ai — reads and signed writes across Ethereum and any EVM-compatible chain (Polygon, Arbitrum, Optimism, Base) as workflow steps, via Nethereum over JSON-RPC.</p>
+  </div>
+
+  <div class="callout info">
+    <strong>What it does:</strong> The Ethereum node (<code>ethereum</code>) wraps JSON-RPC (via
+    Nethereum) as BizFirst.Ai workflow operations across ten resources — <code>account</code>,
+    <code>block</code>, <code>transaction</code>, <code>token</code> (ERC-20), <code>nft</code>
+    (ERC-721), <code>contract</code>, <code>ens</code>, <code>gas</code>, <code>wallet</code>, and
+    <code>utility</code> — 64 defined operations. Unlike many read-only community blockchain
+    nodes, this one ships real signed writes: token transfers, contract calls, NFT transfers,
+    contract deployment, and off-chain message signing, each authenticated with a vault
+    <code>CRYPTO_WALLET</code> credential.
+  </div>
+
+  <h2>Get Started</h2>
+  <div class="card-grid">
+    <a class="card" href="https://docs.bizfirstai.com/Nodes/Ethereum/">
+      <div class="card-icon"><i class="fa-solid fa-book"></i></div>
+      <h3>Full Guide</h3>
+      <p>16-page reference — configuration, networks, every resource's operations, examples, troubleshooting.</p>
+    </a>
+    <a class="card" href="../src/">
+      <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+      <h3>Source Code</h3>
+      <p>Browse the full C# implementation — Domain, Services, and Executor projects.</p>
+    </a>
+    <a class="card" href="https://github.com/BizFirstAi/EthereumAgents">
+      <div class="card-icon"><i class="fa-brands fa-github"></i></div>
+      <h3>GitHub Repo</h3>
+      <p>Star it, file an issue, or open a PR.</p>
+    </a>
+  </div>
+
+  <h2>Operations at a Glance</h2>
+  <table>
+    <thead><tr><th>Resource</th><th>Operations</th></tr></thead>
+    <tbody>
+      <tr><td><code>account</code></td><td><code>balance</code>, <code>nonce</code>, <code>code</code>, <code>history</code></td></tr>
+      <tr><td><code>block</code></td><td><code>get</code>, <code>number</code>, <code>list</code></td></tr>
+      <tr><td><code>transaction</code></td><td><code>get</code>, <code>send</code>, <code>receipt</code>, <code>pending</code>, <code>decode</code>, <code>wait</code></td></tr>
+      <tr><td><code>token</code> (ERC-20)</td><td><code>balance</code>, <code>transfer</code>, <code>approve</code>, <code>transferFrom</code>, <code>allowance</code>, <code>totalSupply</code>, <code>decimals</code>, <code>name</code>, <code>symbol</code>, <code>mint</code>, <code>burn</code></td></tr>
+      <tr><td><code>nft</code> (ERC-721)</td><td><code>balance</code>, <code>ownerOf</code>, <code>transferFrom</code>, <code>safeTransferFrom</code>, <code>approve</code>, <code>setApprovalForAll</code>, <code>getApproved</code>, <code>isApprovedForAll</code>, <code>tokenUri</code>, <code>mint</code>, <code>listOwnedTokens</code>, <code>getMetadata</code></td></tr>
+      <tr><td><code>contract</code></td><td><code>read</code>, <code>write</code>, <code>simulate</code>, <code>deploy</code>, <code>multicall</code>, <code>detectStandards</code>, <code>logs</code>*</td></tr>
+      <tr><td><code>ens</code></td><td><code>resolve</code>, <code>reverse</code>, <code>avatar</code>, <code>text</code>, <code>resolver</code></td></tr>
+      <tr><td><code>gas</code></td><td><code>estimate</code>, <code>price</code>, <code>feeHistory</code>, <code>priorityFee</code>, <code>optimize</code></td></tr>
+      <tr><td><code>wallet</code></td><td><code>signMessage</code>, <code>signTypedData</code>, <code>verifySignature</code></td></tr>
+      <tr><td><code>utility</code></td><td><code>validateAddress</code>, <code>convertUnits</code>, <code>chainId</code>, <code>encodeFunctionData</code>, <code>decodeFunctionData</code>, <code>encodeEventTopics</code>, <code>decodeEventLog</code>, <code>contractAddress</code></td></tr>
+    </tbody>
+  </table>
+  <p><sup>* <code>contract.logs</code> is implemented but not currently reachable — see Known Gaps below.</sup>
+  Full field-by-field reference for every operation: see the <a href="https://docs.bizfirstai.com/Nodes/Ethereum/">Full Guide</a>.</p>
+
+  <div class="callout warning">
+    <strong>Known gaps:</strong> <code>account.history</code> needs an Etherscan-compatible
+    indexer API that isn't wired up — standard JSON-RPC has no method to list an address's past
+    transactions, so it fails clearly with <code>INDEXER_NOT_CONFIGURED</code>.
+    <code>contract.logs</code> is fully implemented in the service layer but its case in the
+    operation-routing switch is currently commented out, so it isn't reachable through the node
+    today (a wiring gap, not a missing feature). 63 of the 64 defined operations are reachable now.
+  </div>
+
+  <h2>Configuration &amp; Networks</h2>
+  <p>Chain-agnostic by design — any EVM-compatible network works via a plain JSON-RPC URL and
+  chain ID, configured under the <code>Ethereum:Networks</code> application setting:</p>
+  <ul>
+    <li><code>ethereum</code> — Ethereum mainnet (<strong>default network</strong>, chain ID 1)</li>
+    <li><code>polygon</code>, <code>arbitrum</code>, <code>optimism</code>, <code>base</code> — popular L2s/sidechains, same node code</li>
+    <li><code>sepolia</code> — Ethereum's public testnet, free faucet ETH</li>
+    <li>any local dev chain (Anvil/Hardhat/Ganache) or private/enterprise EVM chain</li>
+  </ul>
+  <p>Every operation accepts a <code>network</code> config key, defaulting to
+  <code>Ethereum:DefaultNetwork</code>. Write operations additionally require a
+  <code>credentialID</code> config key pointing at a vault <code>CRYPTO_WALLET</code> credential —
+  the signing key is never a plain config field. Provider API keys should be kept out of plain
+  <code>RpcUrl</code> values — use <code>RpcUrlCredentialId</code> (a vault <code>SERVICE_URL</code>
+  credential) for any endpoint that embeds a secret.</p>
+
+  <h2>Roadmap</h2>
+  <p><code>account.history</code> needs an Etherscan-compatible indexer integration.
+  <code>contract.logs</code> just needs its routing switch case re-enabled. Trigger nodes
+  (block/transaction/contract-event/interval listeners) are an open architectural question, out
+  of scope for this action-node build. ENS resolution is a manual implementation cross-checked
+  against the EIP-137 test vector, flagged for further verification beyond plain-ASCII
+  <code>.eth</code> names on mainnet.</p>
+
+  <h2>About BizFirst.Ai</h2>
+  <p><a href="https://bizfirstai.com">BizFirst.Ai</a> is a workflow automation platform for
+  building AI-driven business processes. This node is one of many community connectors that
+  plug into its ProcessEngine — browse the full node catalogue and developer guides at
+  <a href="https://docs.bizfirstai.com">docs.bizfirstai.com</a>, or join the discussion at
+  <a href="https://community.bizfirstai.com">community.bizfirstai.com</a>.</p>
+
+</main>
+</body>
+</html>
